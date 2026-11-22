@@ -15,3 +15,4 @@ Open `http://127.0.0.1:8765/`.
 ## Deploy
 
 The GitHub Actions workflow in `.github/workflows/pages.yml` deploys the site to GitHub Pages when changes are pushed to `main`.
+The repository's Pages source must be set to **GitHub Actions** in **Settings → Pages**.
