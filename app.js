@@ -187,6 +187,7 @@ document.querySelectorAll(".download-box").forEach(form => {
   const toolPlatform = form.dataset.toolPlatform;
   form.addEventListener("submit", event => {
     event.preventDefault();
+    hint.classList.remove("warning");
     const raw = input.value.trim();
     if (!raw) {
       hint.textContent = "Paste a video link first. No download service is connected.";
@@ -207,7 +208,8 @@ document.querySelectorAll(".download-box").forEach(form => {
     const host = url.hostname.toLowerCase().replace(/^www\./, "");
     const match = platforms.find(item => item.domains.some(domain => host === domain || host.endsWith(`.${domain}`)));
     if (!match) {
-      hint.textContent = "We couldn’t match this link to a supported platform. Try a Facebook, Pinterest, Instagram, TikTok, YouTube, or Twitter/X link.";
+      hint.classList.add("warning");
+      hint.textContent = "Warning: this domain is unknown or may redirect to another site. FrameDrop cannot verify or download media from it. Use a direct Facebook, Pinterest, Instagram, TikTok, YouTube, or Twitter/X link.";
       return;
     }
 
