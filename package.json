@@ -1,0 +1,12 @@
+{
+  "name": "framedrop",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node --test backend/server.test.js"
+  }
+}

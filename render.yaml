@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: framedrop-video-api
+    runtime: node
+    plan: free
+    buildCommand: echo "No build step required"
+    startCommand: node backend/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: FRONTEND_ORIGIN
+        value: https://papajani2097-netizen.github.io
+      - key: FRONTEND_BASE_PATH
+        value: /all-video-downloader
+      - key: META_REDIRECT_URI
+        value: https://framedrop-video-api.onrender.com/auth/meta/callback
+      - key: META_GRAPH_VERSION
+        value: v27.0
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
